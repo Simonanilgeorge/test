@@ -1,0 +1,26 @@
+
+<div>
+<h1>EMPLOYEE DETAILS</h1>
+
+<p>NAME:</p><input #name type="text"><br>
+<!-- <button (click)="getname(name.value)">log</button>
+{{personname}} -->
+<p>ADDRESS:</p><input #address type="text"><br>
+<p>SALARY:</p><input #salary type="text"><br>
+<p>CONTACT:</p><input #contact type="text"><br>
+<p>BLOOD GROUP:</p><input #bloodgroup type="text"><br>
+
+<button (click)="getdetails(name.value,address.value,salary.value,contact.value,bloodgroup.value)">SUBMIT</button>
+
+</div>
+
+
+<div>
+    <h1>DISPLAY DETAILS</h1>
+
+<p>{{personname|uppercase}}</p>
+<p>{{personaddress|uppercase}}</p>
+<p>{{personsalary|number:'1.3'}}</p>
+<p>{{personcontact|uppercase}}</p>
+<p>{{personbloodgroup|uppercase}}</p>
+</div>
