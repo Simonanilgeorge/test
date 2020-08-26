@@ -22,11 +22,12 @@ public students=[];
   ngOnInit(): void {
 this.students=this.studentservice.getstudents();
 
-    console.log(this.activatedrouter);
+
+
   }
 
   selectstudent(student){
-    console.log(student.name);
+
 this.router.navigate(['/studentdetails',student.name]);
   }
 }

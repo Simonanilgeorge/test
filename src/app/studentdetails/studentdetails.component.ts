@@ -11,31 +11,35 @@ export class StudentdetailsComponent implements OnInit {
 
 public studentname=""
   public students=[];
-  public detstud=[];
+  public stud:any=[];
+
   //activated router instance created with variable router
   //it is used to get info from the url
 
-  constructor(private studentservice:StudentsService,private route:ActivatedRoute,private router:Router) { }
+  constructor(private studentservice:StudentsService,private route:ActivatedRoute) { }
 
   ngOnInit(): void {
   
 
-    this.students=this.studentservice.getstudents();
-
-    let name=(this.route.snapshot.paramMap.get('name'));
-  
-
-
-    //call get details function on load
-    //pass the value name to the get details function
-    this.detstud=this.studentservice.getdetails(name);
    
 
-    
-    // this.studentname=name;
+let name:string;
+this.students=this.studentservice.getstudents();
+// console.log(`the type of students array is ${this.students}`)
 
+
+
+  
+    name = this.route.snapshot.paramMap.get('name');
+    // console.log(`the student name from the url is ${name}`);
+
+    
+    this.stud=this.studentservice.getdetails(name);
+    // console.log(`the type of stud is ${this.stud}`)
+      
     // this.route.paramMap.subscribe((params:ParamMap)=>{
     //   let name=(params.get('name'));
     //   this.studentname=name;
   }
+
 }

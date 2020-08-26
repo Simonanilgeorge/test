@@ -7,6 +7,8 @@ export class StudentsService {
 
   constructor() { }
 
+
+
 //return an array of students
 students=[
   {name:"john",id:1,class:10,address:"kerala",dob:1997,contact:938984398},
@@ -17,27 +19,37 @@ students=[
 ];
 getstudents(){
  
-  console.log(`1st element is ${this.students[0].name}`);
-  return this.students;
+// console.log(`inside get students function the value of students is ${this.students}`);
+  
+
+return this.students;
   
 
 }
 
 
-getdetails(Name:string){
-let pos;
-for(let i=0;i<=this.students.length;i++)
-{
-  if(this.students[i].name===Name){
-    pos=i;
+getdetails(Name:string):any{
 
+console.log("funtion get details called");
+
+
+
+let pos;
+//use a for loop to print the student names
+for(let i=0;i<5;i++){
+
+
+  //check if the names match if so return the values
+  if(this.students[i].name===Name){
+pos=i;
   }
 }
-  console.log(`details of student${this.students[pos].name}`)
-  return this.students[pos];
+//match found
 
+// console.log(`the value of students inside get details function is ${this.students}`)
 
-
+console.log(`the value of student inside this.student[pos] is ${this.students[pos]}`);
+return this.students[pos];
 }
 }
 
