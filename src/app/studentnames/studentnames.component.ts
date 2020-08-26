@@ -1,6 +1,7 @@
 import { Component, OnInit } from '@angular/core';
 import {StudentsService} from '../students.service';
 import {Router} from '@angular/router';
+import {ActivatedRoute} from '@angular/router';
 
 @Component({
   selector: 'studentnames',
@@ -14,13 +15,14 @@ export class StudentnamesComponent implements OnInit {
 
 public students=[];
   //create an instance for student service
-  constructor(private studentservice:StudentsService,private router:Router) { }
+  constructor(private studentservice:StudentsService,private router:Router,private activatedrouter:ActivatedRoute) { }
 
 
 //fetch the data in ngoninit method
   ngOnInit(): void {
 this.students=this.studentservice.getstudents();
-    
+
+    console.log(this.activatedrouter);
   }
 
   selectstudent(student){
