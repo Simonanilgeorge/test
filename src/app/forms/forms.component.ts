@@ -33,7 +33,7 @@ export class FormsComponent implements OnInit {
 
 
   addTask(index) {
-    this.taskList(index).push(this.fb.control(''))
+ this.taskList(index).push(this.fb.control(''))
   }
 
   addUser() {
@@ -75,7 +75,8 @@ getUserIndex(index){
 
     console.log(index);
     this.users.setControl(index, this.fb.group({
-      name: ["updated name"]
+      name: ["updated name"],
+      tasks:this.fb.array([this.addTask(index)])
     }))
 
   }
