@@ -13,7 +13,10 @@ export class FormsComponent implements OnInit {
   Form = this.fb.group({
     username: [],
     age: [],
-    users: this.fb.array([])
+    users: this.fb.array([]),
+    tasks:this.fb.array([
+      this.fb.control('')
+    ])
   })
 
   constructor(private fb: FormBuilder) { }
@@ -26,20 +29,18 @@ export class FormsComponent implements OnInit {
     return this.Form.get('users') as FormArray;
   }
 
-  // get tasks(){
-  //   return this.users.get('tasks') as FormArray;
-  // }
+  get tasks(){
+    return this.users.get('tasks') as FormArray;
+  }
 
-getTasks(){
-  console.log()
-  return this.users.get('tasks') as FormArray;
 
+addTask(){
+  this.tasks.push(this.fb.control(''))
 }
 
   addUser() {
     this.users.push(this.fb.group({
-      name: [""],
-      tasks:this.fb.array(['task1','task2','task3'])
+      name: [""],   
     }))
   }
 

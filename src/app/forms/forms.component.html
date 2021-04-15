@@ -38,7 +38,14 @@
         </div>
     </div>
 
+<div class="inputgroup" formArrayName="tasks">
+    <button class="button" (click)="addTask()"> add new Task</button>
+    <div class="inputgroup" *ngFor="let task of tasks.controls;let i=index">
+        <input type="text" [formControlName]="i">
 
+    </div>
+
+</div>
     <div class="inputgroup">
         <button class="button" type="submit">submit</button>
     </div>
@@ -58,3 +65,6 @@
 
     </div>
 </div>
+
+
+
