@@ -33,6 +33,21 @@
                     <input type="text" formControlName="name">
                     <button class="button" type="button" (click)="setControls(i)">update value</button>
                     
+
+                    <div class="inputgroup" formArrayName="tasks">
+
+                        <button class="button" type="button" (click)="addTask(i)">add task</button>
+
+                        <div class="inputgroup" *ngFor="let task of taskList(i).controls;let j=index">
+                            <div class="inputgroup">
+                                <label for="">
+                                    Add task:
+                                </label>
+                                <input type="text" [formControlName]="j">
+                            </div>
+
+                        </div>
+                    </div>
                 </div>
 
             </div>

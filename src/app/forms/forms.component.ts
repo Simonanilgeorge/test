@@ -32,15 +32,21 @@ export class FormsComponent implements OnInit {
   }
 
 
-  addTask() {
-    this.tasks.push(this.fb.control(''))
+  addTask(index) {
+    this.taskList(index).push(this.fb.control(''))
   }
 
   addUser() {
     this.users.push(this.fb.group({
       name: [""],
+      tasks:this.fb.array([])
     }))
   }
+
+  taskList(index:number) : FormArray {
+    return this.users.at(index).get("tasks") as FormArray
+  }
+ 
 
 getUserIndex(index){
   let users=this.Form.get('users') as FormArray
