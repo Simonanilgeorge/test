@@ -24,6 +24,8 @@
             <button class="button" type="button" (click)="addUser()">add new user</button>
 
             <div class="inputgroup" *ngFor="let user of users.controls; let i=index;">
+
+                <button class="button" type="button" (click)="getUserIndex(i)">get user index</button>
                 <div class="inputgroup" [formGroupName]="i">
                     <label for="">
                         add user
@@ -37,7 +39,7 @@
 
         </div>
     </div>
-
+<!-- 
 <div class="inputgroup" formArrayName="tasks">
     <button class="button" (click)="addTask()"> add new Task</button>
     <div class="inputgroup" *ngFor="let task of tasks.controls;let i=index">
@@ -45,7 +47,7 @@
 
     </div>
 
-</div>
+</div> -->
     <div class="inputgroup">
         <button class="button" type="submit">submit</button>
     </div>

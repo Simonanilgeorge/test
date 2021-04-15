@@ -13,10 +13,8 @@ export class FormsComponent implements OnInit {
   Form = this.fb.group({
     username: [],
     age: [],
-    users: this.fb.array([]),
-    tasks:this.fb.array([
-      this.fb.control('')
-    ])
+    users: this.fb.array([])
+
   })
 
   constructor(private fb: FormBuilder) { }
@@ -29,35 +27,49 @@ export class FormsComponent implements OnInit {
     return this.Form.get('users') as FormArray;
   }
 
-  get tasks(){
+  get tasks() {
     return this.users.get('tasks') as FormArray;
   }
 
 
-addTask(){
-  this.tasks.push(this.fb.control(''))
-}
+  addTask() {
+    this.tasks.push(this.fb.control(''))
+  }
 
   addUser() {
     this.users.push(this.fb.group({
-      name: [""],   
+      name: [""],
     }))
   }
 
+getUserIndex(index){
+  let users=this.Form.get('users') as FormArray
+  console.log(`inside get user index function `)
+  console.log(users)
 
+
+  console.log("users.controls")
+  console.log(users.controls)
+
+
+  console.log(" current user details")
+  let currentUser=users.at(index)
+
+  console.log(currentUser)
+}
 
   submit() {
     console.log("submit function")
-    console.log(this.Form.value); 
+    console.log(this.Form.value);
     // this.users.clear()
   }
 
 
-  setControls(index){
+  setControls(index) {
 
     console.log(index);
-    this.users.setControl(index,this.fb.group({
-      name:["updated name"]
+    this.users.setControl(index, this.fb.group({
+      name: ["updated name"]
     }))
 
   }
