@@ -15,7 +15,10 @@ export class FormsComponent implements OnInit {
     nameArray: [["michael", "Stanley", "Jim", "Dwight"]],
 
     users: this.fb.array([
-      this.fb.control('default value')
+      this.fb.group({
+        name: ["default name"]
+      })
+
     ])
 
 
@@ -33,7 +36,9 @@ export class FormsComponent implements OnInit {
 
 
   addUser() {
-    this.users.push(this.fb.control(''))
+    this.users.push(this.fb.group({
+      name: [""]
+    }))
   }
 
 
