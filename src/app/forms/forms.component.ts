@@ -9,19 +9,11 @@ import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
 
+
   Form = this.fb.group({
     username: [],
     age: [],
-    nameArray: [["michael", "Stanley", "Jim", "Dwight"]],
-
-    users: this.fb.array([
-      this.fb.group({
-        name: ["default name"]
-      })
-
-    ])
-
-
+    users: this.fb.array([])
   })
 
   constructor(private fb: FormBuilder) { }
@@ -34,10 +26,20 @@ export class FormsComponent implements OnInit {
     return this.Form.get('users') as FormArray;
   }
 
+  // get tasks(){
+  //   return this.users.get('tasks') as FormArray;
+  // }
+
+getTasks(){
+  console.log()
+  return this.users.get('tasks') as FormArray;
+
+}
 
   addUser() {
     this.users.push(this.fb.group({
-      name: [""]
+      name: [""],
+      tasks:this.fb.array(['task1','task2','task3'])
     }))
   }
 
@@ -45,10 +47,17 @@ export class FormsComponent implements OnInit {
 
   submit() {
     console.log("submit function")
-    console.log(this.Form.value);
-
+    console.log(this.Form.value); 
     // this.users.clear()
+  }
 
+
+  setControls(index){
+
+    console.log(index);
+    this.users.setControl(index,this.fb.group({
+      name:["updated name"]
+    }))
 
   }
 

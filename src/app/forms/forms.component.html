@@ -16,24 +16,8 @@
 
     </div>
 
-    <div class="inputgroup">
-        <label for="">
-            Add name
-        </label>
-        <input type="text" formControlName="nameArray">
-    </div>
 
-    <div class="inputgroup">
-        <button class="button" type="submit">submit</button>
-    </div>
 
-    <div class="inputgroup">
-        <ul>
-            <li *ngFor="let name of Form.value.nameArray">
-                {{name}}
-            </li>
-        </ul>
-    </div>
 
     <div class="inpugroup">
         <div formArrayName="users" class="inputgroup">
@@ -45,6 +29,8 @@
                         add user
                     </label>
                     <input type="text" formControlName="name">
+                    <button class="button" type="button" (click)="setControls(i)">update value</button>
+                    
                 </div>
 
             </div>
@@ -53,10 +39,22 @@
     </div>
 
 
+    <div class="inputgroup">
+        <button class="button" type="submit">submit</button>
+    </div>
 </form>
 
 
 <div class="inputgroup">
     <h1>Output</h1>
     <h1>{{Form.value|json}}</h1>
+    <div class="inputgroup" *ngFor="let user of Form.value.users">
+        <h1>{{user.name}}</h1>
+        <div class="inputgroup">
+            <ul>
+                <li *ngFor="let task of user.tasks">{{task}}</li>
+            </ul>
+        </div>
+
+    </div>
 </div>
