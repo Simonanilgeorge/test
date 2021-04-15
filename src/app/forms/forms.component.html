@@ -40,13 +40,12 @@
             <button class="button" type="button" (click)="addUser()">add new user</button>
 
             <div class="inputgroup" *ngFor="let user of users.controls; let i=index;">
-                <div class="inputgroup" [formGroupName]="i">
+                <div class="inputgroup">
                     <label for="">
                         add user
                     </label>
-                    <input type="text" formControlName="name">
+                    <input type="text" [formControlName]="i">
                 </div>
-
             </div>
 
         </div>
