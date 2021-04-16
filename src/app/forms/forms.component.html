@@ -16,6 +16,30 @@
 
     </div>
 
+    <div class="inputgroup">
+        <select name="" id="" formControlName="task">
+            <option value="">Select a task</option>
+            <option value="task one">task one</option>
+            <option value="task two">task two</option>
+            <option value="task three">task three</option>
+        </select>
+    </div>
+    <div class="inputgroup" formArrayName="test">
+        <div class="inputgroup" *ngFor="let t of test.controls;let i=index">
+            <div class="inputgroup">
+                <input type="text" [formControlName]="i">
+
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="inputgroup">
+        <button class="button" (click)="updateTest()">updates test values</button>
+    </div>
+
+
 
 
 
@@ -32,7 +56,7 @@
                     </label>
                     <input type="text" formControlName="name">
                     <button class="button" type="button" (click)="setControls(i)">update value</button>
-                    
+
 
                     <div class="inputgroup" formArrayName="tasks">
 
@@ -41,12 +65,16 @@
                         <div class="inputgroup" *ngFor="let task of taskList(i).controls;let j=index">
                             <div class="inputgroup">
                                 <label for="">
-                                    Add task:
+                                    Add task for {{user.value.name}}
                                 </label>
                                 <input type="text" [formControlName]="j">
                             </div>
 
                         </div>
+                    </div>
+
+                    <div class="inputgroup">
+                        <button class="button" type="button" (click)="updateTask(i)">Update task</button>
                     </div>
                 </div>
 
@@ -54,15 +82,7 @@
 
         </div>
     </div>
-<!-- 
-<div class="inputgroup" formArrayName="tasks">
-    <button class="button" (click)="addTask()"> add new Task</button>
-    <div class="inputgroup" *ngFor="let task of tasks.controls;let i=index">
-        <input type="text" [formControlName]="i">
 
-    </div>
-
-</div> -->
     <div class="inputgroup">
         <button class="button" type="submit">submit</button>
     </div>
@@ -82,6 +102,3 @@
 
     </div>
 </div>
-
-
-

@@ -13,6 +13,8 @@ export class FormsComponent implements OnInit {
   Form = this.fb.group({
     username: [],
     age: [],
+    task:[""],
+    test:this.fb.array(["test one","test two"]),
     users: this.fb.array([])
 
   })
@@ -21,7 +23,9 @@ export class FormsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-
+get test(){
+  return this.Form.get("test") as FormArray
+}
   // getter to access formarray
   get users() {
     return this.Form.get('users') as FormArray;
@@ -33,13 +37,14 @@ export class FormsComponent implements OnInit {
 
 
   addTask(index) {
- this.taskList(index).push(this.fb.control(''))
+   
+this.taskList(index).push(this.fb.control(''))
   }
 
   addUser() {
     this.users.push(this.fb.group({
       name: [""],
-      tasks:this.fb.array([])
+      tasks:this.fb.array(["hello","world"])
     }))
   }
 
@@ -62,6 +67,17 @@ getUserIndex(index){
   let currentUser=users.at(index)
 
   console.log(currentUser)
+
+// task index
+
+let tasks=this.users.at(index).get("tasks") as FormArray
+
+console.log("tasks")
+console.log(tasks)
+
+console.log("tasks.controls")
+console.log(tasks.controls);
+
 }
 
   submit() {
@@ -74,11 +90,28 @@ getUserIndex(index){
   setControls(index) {
 
     console.log(index);
+
     this.users.setControl(index, this.fb.group({
       name: ["updated name"],
-      tasks:this.fb.array([this.addTask(index)])
+      tasks:this.fb.array(["hi","world"])
     }))
 
   }
+updateTask(index){
+
+
+  console.log(this.users.at(index));
+  let tasks= this.users.at(index).get("tasks") as FormArray
+tasks.patchValue(["tesing","patch"])
+}
+updateTest(){
+
+
+  console.log("update test")
+ console.log(this.test);
+ this.test.patchValue(["hello","world"])
+
+
+}
 
 }
