@@ -1,1 +1,10 @@
-<p>card works!</p>
+<div *ngIf="student">
+<div class="card">
+    <h1>{{student.name}}</h1>
+    <h2>{{student.id}}</h2>
+    <h2>{{student.address}}</h2>
+    <h2>{{student.dob}}</h2>
+    <h2>{{student.contact}}</h2>
+    <button class="button" (click)="greeting.emit(student)">greet</button>
+</div>
+</div>

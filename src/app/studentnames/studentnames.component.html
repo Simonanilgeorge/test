@@ -3,9 +3,11 @@
 <div>
     <h1>STUDENT NAMES</h1>
     <ul  *ngFor="let student of students">
-        <li (click)="selectstudent(student)">Student name :{{student.name}}</li>
+        <!-- <li (click)="selectstudent(student)">Student name :{{student.name}}</li> -->
 
-
+        <app-card [student]="student" (greeting)="greet(student)"></app-card>
     </ul>
+
+
     
 </div>

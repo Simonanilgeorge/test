@@ -30,4 +30,9 @@ this.students=this.studentservice.getstudents();
 
 this.router.navigate(['/studentdetails',student.name]);
   }
+
+  greet(student) {
+console.log("Good Morning!")
+console.log(student)
+  }
 }

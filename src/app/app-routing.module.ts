@@ -4,11 +4,13 @@ import {StudentnamesComponent} from './studentnames/studentnames.component';
 import {StudentdetailsComponent} from './studentdetails/studentdetails.component';
 import {EmployeeDetailsComponent} from './employee-details/employee-details.component';
 import {FormsComponent} from './forms/forms.component'
+import {CardComponent} from './card/card.component'
 
 //configure all possible routes
 
 const routes: Routes = [
   {path:'',component:FormsComponent},
+  {path:'card',component:CardComponent},
   {path:'employeedetails',component:EmployeeDetailsComponent},
   {path:'studentdetails/:name',component:StudentdetailsComponent},
   {path:'studentnames',component:StudentnamesComponent},
