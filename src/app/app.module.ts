@@ -7,13 +7,16 @@ import { ReactiveFormsModule } from '@angular/forms';
 
 import {StudentsService} from './students.service';
 import { FormsComponent } from './forms/forms.component';
+import { CardComponent } from './card/card.component';
 @NgModule({
   declarations: [
     AppComponent,
   
 routingcomponents,
   
-FormsComponent
+FormsComponent,
+  
+CardComponent
   ],
   imports: [
     BrowserModule,

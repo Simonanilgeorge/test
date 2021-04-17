@@ -13,8 +13,8 @@ export class FormsComponent implements OnInit {
   Form = this.fb.group({
     username: [],
     age: [],
-    task:[""],
-    test:this.fb.array(["test one","test two"]),
+    task: [""],
+    test: this.fb.array([]),
     users: this.fb.array([])
 
   })
@@ -23,9 +23,9 @@ export class FormsComponent implements OnInit {
   ngOnInit(): void {
   }
 
-get test(){
-  return this.Form.get("test") as FormArray
-}
+  get test() {
+    return this.Form.get("test") as FormArray
+  }
   // getter to access formarray
   get users() {
     return this.Form.get('users') as FormArray;
@@ -36,53 +36,63 @@ get test(){
   }
 
 
+addTest(){
+  this.test.push(this.fb.control(this.Form.value))
+
+
+
+}
+
   addTask(index) {
-   
-this.taskList(index).push(this.fb.control(''))
+
+    this.taskList(index).push(this.fb.control(''))
   }
 
   addUser() {
     this.users.push(this.fb.group({
       name: [""],
-      tasks:this.fb.array(["hello","world"])
+      tasks: this.fb.array(["hello", "world"])
     }))
   }
 
-  taskList(index:number) : FormArray {
+  taskList(index: number): FormArray {
     return this.users.at(index).get("tasks") as FormArray
   }
- 
-
-getUserIndex(index){
-  let users=this.Form.get('users') as FormArray
-  console.log(`inside get user index function `)
-  console.log(users)
 
 
-  console.log("users.controls")
-  console.log(users.controls)
+  getUserIndex(index) {
+    let users = this.Form.get('users') as FormArray
+    console.log(`inside get user index function `)
+    console.log(users)
 
 
-  console.log(" current user details")
-  let currentUser=users.at(index)
+    console.log("users.controls")
+    console.log(users.controls)
 
-  console.log(currentUser)
 
-// task index
+    console.log(" current user details")
+    let currentUser = users.at(index)
 
-let tasks=this.users.at(index).get("tasks") as FormArray
+    console.log(currentUser)
 
-console.log("tasks")
-console.log(tasks)
+    // task index
 
-console.log("tasks.controls")
-console.log(tasks.controls);
+    let tasks = this.users.at(index).get("tasks") as FormArray
 
-}
+    console.log("tasks")
+    console.log(tasks)
+
+    console.log("tasks.controls")
+    console.log(tasks.controls);
+
+  }
 
   submit() {
     console.log("submit function")
     console.log(this.Form.value);
+
+    console.log("test array")
+    console.log(this.test.getRawValue())
     // this.users.clear()
   }
 
@@ -93,25 +103,34 @@ console.log(tasks.controls);
 
     this.users.setControl(index, this.fb.group({
       name: ["updated name"],
-      tasks:this.fb.array(["hi","world"])
+      tasks: this.fb.array(["hi", "world"])
     }))
 
   }
-updateTask(index){
+  updateTask(index) {
+
+    console.log(this.users.at(index));
+    let tasks = this.users.at(index).get("tasks") as FormArray
+    tasks.patchValue(["testing"])
+
+  }
+
+  updateTest() {
 
 
-  console.log(this.users.at(index));
-  let tasks= this.users.at(index).get("tasks") as FormArray
-tasks.patchValue(["tesing","patch"])
-}
-updateTest(){
+    console.log("update test")
+    console.log(this.test);
+
+    // this.test.patchValue(["update","update 2","update 3"])
+
+    
+    console.log("after patch test");
+    
+    console.log(this.test);
+
+  //  this.test.value.push(this.fb.array(["one update","two update"]))
 
 
-  console.log("update test")
- console.log(this.test);
- this.test.patchValue(["hello","world"])
-
-
-}
+  }
 
 }

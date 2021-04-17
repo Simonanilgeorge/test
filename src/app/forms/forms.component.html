@@ -24,19 +24,27 @@
             <option value="task three">task three</option>
         </select>
     </div>
-    <div class="inputgroup" formArrayName="test">
+    <!-- <div class="inputgroup" formArrayName="test">
         <div class="inputgroup" *ngFor="let t of test.controls;let i=index">
             <div class="inputgroup">
+                <label for="">
+                    test
+                </label>
                 <input type="text" [formControlName]="i">
 
             </div>
 
         </div>
-    </div>
+    </div> -->
 
 
     <div class="inputgroup">
         <button class="button" (click)="updateTest()">updates test values</button>
+    </div>
+
+
+    <div class="inputgroup">
+        <button class="button" (click)="addTest()">Add test values</button>
     </div>
 
 
@@ -76,6 +84,7 @@
                     <div class="inputgroup">
                         <button class="button" type="button" (click)="updateTask(i)">Update task</button>
                     </div>
+                    
                 </div>
 
             </div>
@@ -99,6 +108,16 @@
                 <li *ngFor="let task of user.tasks">{{task}}</li>
             </ul>
         </div>
+
+    </div>
+</div>
+
+
+<div class="inputgroup">
+    <h1>test display</h1>
+
+    <div class="inputgroup" *ngFor="let test of Form.value.test">
+        <h1>{{test}}</h1>
 
     </div>
 </div>
