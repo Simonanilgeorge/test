@@ -8,6 +8,7 @@ import { ReactiveFormsModule } from '@angular/forms';
 import {StudentsService} from './students.service';
 import { FormsComponent } from './forms/forms.component';
 import { CardComponent } from './card/card.component';
+import { CheckboxComponent } from './checkbox/checkbox.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -16,7 +17,9 @@ routingcomponents,
   
 FormsComponent,
   
-CardComponent
+CardComponent,
+  
+CheckboxComponent
   ],
   imports: [
     BrowserModule,
