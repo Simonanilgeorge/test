@@ -1,1 +1,30 @@
-<p>checkbox works!</p>
+<form [formGroup]="Form" (ngSubmit)="onSubmit()">
+
+
+    <div class="inputgroup">
+
+        <div class="inputgroup">
+            <div *ngFor="let input of inputs">
+                <label for="">
+                    <input type="checkbox" value="{{input}}" (click)="add($event)" [checked]=isActive>
+                    {{input}}
+                </label>
+            </div>
+
+            <label for="">
+                <input type="checkbox" (click)="test()">
+                select all
+             
+            </label>
+            
+        </div>
+        <button class="button" type="submit">submit</button>
+    </div>
+
+
+</form>
+
+
+<label for="">test</label>
+<input type="checkbox" [checked]="isActive" >
+<button class="button" (click)="test()">test</button>
