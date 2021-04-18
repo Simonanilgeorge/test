@@ -4,15 +4,16 @@
     <div class="inputgroup">
 
         <div class="inputgroup">
-            <div *ngFor="let input of inputs">
+            <div *ngFor="let input of inputs;let i=index">
                 <label for="">
-                    <input type="checkbox" value="{{input}}" (click)="add($event)" [checked]=isActive>
+                    <input type="checkbox" value="{{input}}" (click)="add($event,i)" [checked]=isActive>
                     {{input}}
                 </label>
+  
             </div>
 
             <label for="">
-                <input type="checkbox" (click)="test()">
+                <input type="checkbox" (click)="selectAll()">
                 select all
              
             </label>
@@ -23,8 +24,3 @@
 
 
 </form>
-
-
-<label for="">test</label>
-<input type="checkbox" [checked]="isActive" >
-<button class="button" (click)="test()">test</button>
