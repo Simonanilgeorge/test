@@ -8,34 +8,52 @@ import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 })
 export class CheckboxComponent implements OnInit {
 
-inputs=["stanley","michael","jim","pam","dwight","angela","toby","creed","oscar"]
+  inputs = ["stanley", "michael", "jim", "pam", "dwight", "angela", "toby", "creed", "oscar"]
 
-isActive:boolean=false;
-Form=this.fb.group({
-checkbox:this.fb.array([])
-})
+  isActive: boolean = false;
+  Form = this.fb.group({
+    checkbox: this.fb.array([])
+  })
 
-  constructor(private fb:FormBuilder) { }
+  constructor(private fb: FormBuilder) { }
 
   ngOnInit(): void {
   }
 
-  get checkbox(){
+  get checkbox() {
     return this.Form.get("checkbox") as FormArray
   }
 
-  onSubmit(){
+  onSubmit() {
     console.log("submit function")
+    console.log(this.checkbox.controls)
+    console.log(this.checkbox.getRawValue())
   }
 
-  add(e){
+  add(e) {
     console.log(e.target.checked);
     // this.checkbox.push(this.fb.control(e.target.value))    
   }
 
-  test(){
+  test() {
     console.log("test")
-    this.isActive=!this.isActive;
-    console.log(this.isActive)
+    this.isActive = !this.isActive;
+    if (this.isActive) {
+
+
+    
+      this.inputs.forEach((input) => {
+        this.checkbox.push(this.fb.control(input))
+      })
+
+    }
+    else {
+      this.checkbox.clear();
+    }
+
+
+
+    // console.log(this.checkbox.value)
+
   }
 }
