@@ -9,6 +9,7 @@ import {StudentsService} from './students.service';
 import { FormsComponent } from './forms/forms.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
+import { TableComponent } from './table/table.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -19,7 +20,9 @@ FormsComponent,
   
 CardComponent,
   
-CheckboxComponent
+CheckboxComponent,
+  
+TableComponent
   ],
   imports: [
     BrowserModule,

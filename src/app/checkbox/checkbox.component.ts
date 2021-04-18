@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, OnInit,Input,Output } from '@angular/core';
 import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 
 @Component({
@@ -7,8 +7,8 @@ import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
   styleUrls: ['./checkbox.component.css']
 })
 export class CheckboxComponent implements OnInit {
-
-  inputs = ["stanley", "michael", "jim", "pam", "dwight", "angela", "toby", "creed", "oscar"]
+@Input() inputs?
+  // inputs = ["stanley", "michael", "jim", "pam", "dwight", "angela", "toby", "creed", "oscar"]
 
   isActive: boolean = false;
   Form = this.fb.group({
@@ -43,32 +43,24 @@ export class CheckboxComponent implements OnInit {
       })
       this.checkbox.removeAt(index);
       console.log(this.checkbox.getRawValue());
-
     }
-
-
   }
 
   selectAll() {
-    console.log("test")
+
     this.isActive = !this.isActive;
+
     if (this.isActive) {
-
-
-
+      this.checkbox.clear();
       this.inputs.forEach((input) => {
         this.checkbox.push(this.fb.control(input))
       })
-
     }
     else {
       this.checkbox.clear();
     }
+    console.log(this.checkbox.getRawValue());
     // console.log(this.checkbox.value)
-
   }
 
-  delete(event) {
-
-  }
 }

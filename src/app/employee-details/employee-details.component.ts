@@ -7,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
 })
 export class EmployeeDetailsComponent implements OnInit {
 
+  cars=["ferrari","bmw","porche","audi","benz","rolls"]
+
   constructor() { }
 
 //create empty variables for name address salary and blood group
@@ -15,7 +17,6 @@ personaddress="";
 personcontact="";
 personsalary="";
 personbloodgroup="";
-
 
 getdetails(NAME,ADDRESS,SALARY,CONTACT,BLOODGROUP){
   this.personname=NAME;
