@@ -1,1 +1,8 @@
-<p>table works!</p>
+<table>
+    <tr>
+        <th *ngFor="let title of title">{{title}}</th>
+    </tr>
+    <tr *ngFor="let data of data">
+        <td *ngFor="let title of title">{{data[title]}}</td>
+    </tr>
+</table>

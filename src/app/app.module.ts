@@ -10,6 +10,7 @@ import { FormsComponent } from './forms/forms.component';
 import { CardComponent } from './card/card.component';
 import { CheckboxComponent } from './checkbox/checkbox.component';
 import { TableComponent } from './table/table.component';
+import { ToastComponent } from './toast/toast.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -22,7 +23,9 @@ CardComponent,
   
 CheckboxComponent,
   
-TableComponent
+TableComponent,
+  
+ToastComponent
   ],
   imports: [
     BrowserModule,

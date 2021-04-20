@@ -6,11 +6,15 @@ import {EmployeeDetailsComponent} from './employee-details/employee-details.comp
 import {FormsComponent} from './forms/forms.component'
 import {CardComponent} from './card/card.component'
 import {CheckboxComponent} from './checkbox/checkbox.component'
+import {TableComponent} from './table/table.component'
+import {ToastComponent} from './toast/toast.component'
 
 //configure all possible routes
 
 const routes: Routes = [
-  {path:'',component:FormsComponent},
+  // {path:'',component:FormsComponent},
+  {path:'',component:ToastComponent},
+  {path:'table',component:TableComponent},
   {path:'checkbox',component:CheckboxComponent},
   {path:'card',component:CardComponent},
   {path:'employeedetails',component:EmployeeDetailsComponent},

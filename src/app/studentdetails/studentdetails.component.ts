@@ -9,8 +9,15 @@ import {Router} from '@angular/router';
 })
 export class StudentdetailsComponent implements OnInit {
 
+
+  message="Success"
 public studentname=""
   public students=[];
+toast:boolean=false;
+  cars=[{name:"bmw",year:1990},
+  {name:"benz",year:1990},
+  {name:"ford",year:1990},]
+  
   public stud:any=[];
 
   //activated router instance created with variable router
@@ -20,26 +27,28 @@ public studentname=""
 
   ngOnInit(): void {
   
-
-   
-
 let name:string;
 this.students=this.studentservice.getstudents();
 // console.log(`the type of students array is ${this.students}`)
-
-
-
-  
     name = this.route.snapshot.paramMap.get('name');
     // console.log(`the student name from the url is ${name}`);
-
-    
     this.stud=this.studentservice.getdetails(name);
     // console.log(`the type of stud is ${this.stud}`)
       
     // this.route.paramMap.subscribe((params:ParamMap)=>{
     //   let name=(params.get('name'));
     //   this.studentname=name;
+
+    console.log(this.students);
+    // console.log(this.stud)
   }
+
+showToast(){
+this.toast=true;
+setTimeout(()=>{
+  this.toast=false;
+},1500)
+
+}
 
 }
