@@ -12,8 +12,8 @@ import {ToastComponent} from './toast/toast.component'
 //configure all possible routes
 
 const routes: Routes = [
-  // {path:'',component:FormsComponent},
-  {path:'',component:ToastComponent},
+  {path:'',component:FormsComponent},
+  // {path:'',component:ToastComponent},
   {path:'table',component:TableComponent},
   {path:'checkbox',component:CheckboxComponent},
   {path:'card',component:CardComponent},

@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
+import { FormBuilder, FormArray, ReactiveFormsModule, FormsModule } from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -9,6 +9,15 @@ import { FormBuilder, FormArray, ReactiveFormsModule } from '@angular/forms';
 })
 export class FormsComponent implements OnInit {
 
+
+newForm=this.fb.group({
+inputs:this.fb.group({
+  test1:[""],
+  test2:[""]
+})
+
+
+});
 
   Form = this.fb.group({
     username: [],
@@ -22,6 +31,11 @@ export class FormsComponent implements OnInit {
   constructor(private fb: FormBuilder) { }
   ngOnInit(): void {
   }
+
+
+get inputs(){
+  return this.newForm.get("inputs");
+}
 
   get test() {
     return this.Form.get("test") as FormArray
@@ -131,6 +145,11 @@ addTest(){
   //  this.test.value.push(this.fb.array(["one update","two update"]))
 
 
+  }
+
+
+  newFormSubmit(){
+    console.log(JSON.stringify(this.newForm.value));
   }
 
 }

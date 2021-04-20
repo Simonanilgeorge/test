@@ -1,6 +1,28 @@
+<!-- <app-card [title]="Hello World"></app-card> -->
+<app-card [title]="Form"></app-card>
 
-    <!-- <app-card [title]="Hello World"></app-card> -->
-    <app-card [title]="Form"></app-card>
+
+<form [formGroup]="newForm">
+
+    <div class="inputgroup" formGroupName="inputs">
+        <div class="inputgroup">
+            <label for="">
+                test 1
+            </label>
+            <input type="text" formControlName="test1">
+        </div>
+        <div class="inputgroup">
+            <label for="">
+                test 2
+            </label>
+            <input type="text" formControlName="test2">
+        </div>
+        <div class="inputgroup">
+            <button class="button" (click)="newFormSubmit()">newForm submit</button>
+        </div>
+    </div>
+</form>
+
 <form [formGroup]="Form" (ngSubmit)="submit()">
 
     <div class="inputgroup">
@@ -87,7 +109,7 @@
                     <div class="inputgroup">
                         <button class="button" type="button" (click)="updateTask(i)">Update task</button>
                     </div>
-                    
+
                 </div>
 
             </div>

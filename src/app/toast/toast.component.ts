@@ -1,4 +1,4 @@
-import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
+import { Component, OnInit, Input,Output, EventEmitter,SimpleChanges} from '@angular/core';
 
 @Component({
   selector: 'app-toast',
@@ -8,6 +8,7 @@ import { Component, OnInit, Input,Output, EventEmitter } from '@angular/core';
 export class ToastComponent implements OnInit {
   @Input() message
   @Input() classBoolean
+  @Output() test=new EventEmitter();
 
   // classBoolean: boolean = false;
   constructor() { }
@@ -17,7 +18,15 @@ export class ToastComponent implements OnInit {
 
   }
 
+
+  ngOnChanges(changes: SimpleChanges) {
+    let testMessage="test message"
+    // console.log(changes);
+    this.test.emit(testMessage);
+  }
+  
   toast() {
     console.log(this.classBoolean)
+  
   }
 }
