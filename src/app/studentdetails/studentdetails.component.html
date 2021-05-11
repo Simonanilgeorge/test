@@ -4,20 +4,20 @@
 
 
 
-    <app-toast [message]="message" [classBoolean]="toast"></app-toast>
+    <app-toast [message]="message" [classBoolean]="toast" (test)="changeToast($event)"></app-toast>
 
 
 <div>
     <h1>STUDENT DETAILS</h1>
 
-    <ul *ngFor="let student of students">
+    <!-- <ul *ngFor="let student of students">
         <li>Student name :{{student.name}}</li>
         <li>studentent id :{{student.id}}</li>
         <li>studentent class :{{student.class}}</li>
         <li>studentent address :{{student.address}}</li>
         <li>studentent dob :{{student.dob}}</li>
         <li>studentent contact :{{student.contact}}</li>
-    </ul>
+    </ul> -->
 
     <app-table [data]="cars"></app-table>
     <app-table [data]="students"></app-table>

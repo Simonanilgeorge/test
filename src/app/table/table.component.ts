@@ -8,6 +8,7 @@ import { Component, OnInit,Input} from '@angular/core';
 export class TableComponent implements OnInit {
 @Input() data
 title=[];
+titleName:String;
 
   // data = [
   //   { name: "john", id: 1, class: 10, address: "kerala", dob: 1997, contact: 938984398 },
@@ -24,15 +25,24 @@ title=[];
   }
 
   getTitles() {
-    console.log(this.data);
+    // console.log(this.data);
 
     this.title=this.data.map((data)=>{
       return Object.keys(data);
     })[0]
 
-    console.log(this.title)
+    // console.log(this.title)
   }
 
+  getTitleName(title){
+    
+    this.titleName=null;
+    setTimeout(()=>{
+      this.titleName=title;
+    },100)
+
+
+  }
  
 
 }

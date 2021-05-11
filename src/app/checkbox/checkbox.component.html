@@ -1,4 +1,6 @@
 
+
+
 <div *ngIf="inputs">
 <form [formGroup]="Form" (ngSubmit)="onSubmit()">
 
@@ -15,7 +17,7 @@
             </div>
 
             <label for="">
-                <input type="checkbox" (click)="selectAll()">
+                <input type="checkbox" (click)="selectAll()" [checked]="selectAllBoolean">
                 select all
              
             </label>

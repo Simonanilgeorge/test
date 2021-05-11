@@ -39,7 +39,7 @@ label {
 }
 
 .transform {
-  animation: trans 2.5s ease-out;
+  animation: trans 1.5s ease-out;
 }
 
 @keyframes trans {

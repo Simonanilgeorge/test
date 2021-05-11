@@ -1,7 +1,7 @@
 import { Component, OnInit } from '@angular/core';
-import {StudentsService} from '../students.service';
-import {Router} from '@angular/router';
-import {ActivatedRoute} from '@angular/router';
+import { StudentsService } from '../students.service';
+import { Router } from '@angular/router';
+import { ActivatedRoute } from '@angular/router';
 
 @Component({
   selector: 'studentnames',
@@ -11,28 +11,26 @@ import {ActivatedRoute} from '@angular/router';
 export class StudentnamesComponent implements OnInit {
 
 
-//create an empty array for students
+  //create an empty array for students
 
-public students=[];
+  public students = [];
   //create an instance for student service
-  constructor(private studentservice:StudentsService,private router:Router,private activatedrouter:ActivatedRoute) { }
+  constructor(private studentservice: StudentsService, private router: Router, private activatedrouter: ActivatedRoute) { }
 
 
-//fetch the data in ngoninit method
+  //fetch the data in ngoninit method
   ngOnInit(): void {
-this.students=this.studentservice.getstudents();
-
-
+    this.students = this.studentservice.getstudents();
 
   }
 
-  selectstudent(student){
+  selectstudent(student) {
 
-this.router.navigate(['/studentdetails',student.name]);
+    this.router.navigate(['/studentdetails', student.name]);
   }
 
   greet(student) {
-console.log("Good Morning!")
-console.log(student)
+    console.log("Good Morning!")
+    console.log(student)
   }
 }

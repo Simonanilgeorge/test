@@ -1,8 +1,8 @@
 <table>
     <tr>
-        <th *ngFor="let title of title">{{title}}</th>
+        <th *ngFor="let title of title" (click)="getTitleName(title)">{{title}}</th>
     </tr>
-    <tr *ngFor="let data of data">
+    <tr *ngFor="let data of data | sort:titleName">
         <td *ngFor="let title of title">{{data[title]}}</td>
     </tr>
 </table>

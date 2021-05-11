@@ -44,11 +44,15 @@ export class StudentdetailsComponent implements OnInit {
   }
 
   showToast() {
+    // console.log("inside showToast()")
+    this.toast = true
+  }
 
-    this.toast = true;
-    setTimeout(() => {
-      this.toast = false;
-    }, 2000)
+  changeToast(event){
+    // console.log("inside changeToast()")
+    // console.log(event);
+
+    this.toast=event;
 
   }
 

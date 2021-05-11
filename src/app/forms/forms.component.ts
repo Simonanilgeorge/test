@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 
-import { FormBuilder, FormArray, ReactiveFormsModule, FormsModule } from '@angular/forms';
+import { FormBuilder, FormArray, ReactiveFormsModule, FormsModule, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-forms',
@@ -12,7 +12,7 @@ export class FormsComponent implements OnInit {
 
 newForm=this.fb.group({
 inputs:this.fb.group({
-  test1:[""],
+  test1:["",Validators.required],
   test2:[""]
 })
 
@@ -32,6 +32,9 @@ inputs:this.fb.group({
   ngOnInit(): void {
   }
 
+get test1(){
+  return this.inputs.get("test1");
+}
 
 get inputs(){
   return this.newForm.get("inputs");
@@ -150,6 +153,9 @@ addTest(){
 
   newFormSubmit(){
     console.log(JSON.stringify(this.newForm.value));
+    console.log("this.test1")
+    console.log(this.test1);
+
   }
 
 }
