@@ -12,6 +12,10 @@ import { TableComponent } from './table/table.component';
 import { ToastComponent } from './toast/toast.component';
 import { SelectComponent } from './select/select.component';
 import { SortPipe } from './sort.pipe';
+import { Table1Component } from './table1/table1.component';
+import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
+import { DropdownComponent } from './dropdown/dropdown.component';
+import { MultifilterPipe } from './multifilter.pipe';
 @NgModule({
   declarations: [
     AppComponent,
@@ -30,13 +34,23 @@ ToastComponent,
   
 SelectComponent,
   
-SortPipe
+SortPipe,
+
+  
+Table1Component,
+
+  
+DropdownComponent,
+
+  
+MultifilterPipe
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     ReactiveFormsModule,
-    FormsModule
+    FormsModule,
+    Ng2SmartTableModule,
   ],
   providers: [StudentsService],
   bootstrap: [AppComponent]

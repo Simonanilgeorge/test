@@ -1,0 +1,54 @@
+<!-- <ng2-smart-table [source]="data" ></ng2-smart-table> -->
+
+
+<!-- <input type="text" [(ngModel)]="string">
+<input type="text" [value]="string2">
+
+<h1>{{string}}</h1>
+
+<h1>{{string2}}</h1> -->
+
+
+<form [formGroup]="filterForm">
+    <div class="inputgroup">
+        name
+        <input type="text" formControlName="name">
+    </div>
+
+    <div class="inputgroup">
+        id
+        <input type="text" formControlName="id">
+    </div>
+    <div class="inputgroup">
+        address
+        <input type="text" formControlName="address">
+    </div>
+    <div class="inputgroup">
+        dob
+        <input type="text" formControlName="dob">
+    </div>
+    <div class="inputgroup">
+        class
+        <input type="text" formControlName="class">
+    </div>
+    <div class="inputgroup">
+        contact
+        <input type="text" formControlName="contact">
+    </div>
+    <div class="inputgroup">
+        <button class="button">submit</button>
+    </div>
+
+</form>
+
+
+<div *ngFor="let data of data | sort:string:data">
+    {{data.name}}
+<input type="text" [(ngModel)]="data.name">
+</div>
+
+
+<h2>{{filterForm.value|json}}</h2>
+
+
+<!-- <h1>{{data|json}}</h1> -->

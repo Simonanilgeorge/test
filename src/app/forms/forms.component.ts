@@ -10,6 +10,7 @@ import { FormBuilder, FormArray, ReactiveFormsModule, FormsModule, Validators } 
 export class FormsComponent implements OnInit {
 
 
+  disabled=true;
 newForm=this.fb.group({
 inputs:this.fb.group({
   test1:["",Validators.required],
@@ -20,9 +21,12 @@ inputs:this.fb.group({
 });
 
   Form = this.fb.group({
-    username: [],
-    age: [],
+    username: [{value:'',disabled:this.disabled}],
+    age: [{value:'',disabled:this.disabled}],
+    phone:[{value:'',disabled:true}],
+    email:[{value:'',disabled:true}],
     task: [""],
+
     test: this.fb.array([]),
     users: this.fb.array([])
 
@@ -32,6 +36,18 @@ inputs:this.fb.group({
   ngOnInit(): void {
   }
 
+get phone(){
+  return this.Form.get("phone")
+}
+get email(){
+  return this.Form.get("email")
+}
+  get username(){
+    return this.Form.get("username")
+  }
+  get age(){
+    return this.Form.get("age")
+  }
 get test1(){
   return this.inputs.get("test1");
 }
@@ -158,4 +174,32 @@ addTest(){
 
   }
 
+
+  toggleDisable(){
+    console.log("toggle function called")
+    // console.log(typeof(this.username.disabled))
+    console.log(this.Form.disabled)
+
+if(this.username.disabled && this.age.disabled){
+  this.Form.enable()
+  this.phone.disable()
+  this.email.disable()
+}
+else{
+  this.Form.disable()
+  
+}
+    // if(this.username.disabled){
+    //   this.username.enable()
+    // }
+ 
+    // else{
+    //   this.username.disable()
+    // }
+    // this.age.disable()
+    
+   
+    
+    
+  }
 }

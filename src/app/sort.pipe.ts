@@ -7,8 +7,8 @@ import { Pipe, PipeTransform } from '@angular/core';
 
 export class SortPipe implements PipeTransform {
   flag=false;
-  transform(value: any, args:any): any {
-
+  transform(value: any, args:any,array:any): any {
+    console.log(array)
     let data=value;
 
     if(args){

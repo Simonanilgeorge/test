@@ -1,0 +1,47 @@
+
+.parent{
+    position: relative;
+    border:1px solid grey;
+    cursor:pointer;
+    display: inline-block;
+    padding:1rem 2rem;
+}
+
+.dropdown{
+    border:2px solid black;
+    display: none;
+    position: absolute;
+    left:0;
+    right:0;
+    bottom:0;
+    transform: translate(0,100%);
+  max-height:10rem;
+  overflow: auto;
+background:white;
+}
+
+.display{
+    display:block;
+}
+
+/* .parent:hover .dropdown{
+    display: block;
+} */
+
+
+
+
+li{
+    list-style: none;
+}
+
+.dropdown li{
+    padding:0.3rem;
+
+    /* text-align: center; */
+
+}
+
+.dropdown li:hover{
+    background: rgb(207, 204, 204);
+}

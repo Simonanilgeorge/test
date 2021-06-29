@@ -1,0 +1,22 @@
+
+        
+        <ul >
+            <li class="parent" (click)=display()>
+                Select Names
+                <ul class="dropdown" [class.display]="displayBoolean">
+                    <li *ngFor="let data of data" (click)="getName(data)">{{data}}</li>
+                </ul>
+            </li>
+        </ul>
+
+
+
+<form [formGroup]="Form" (ngSubmit)="submit()">
+    <div class="inputgroup">
+        <input type="date" formControlName="date" >
+    </div>
+    <div class="inputgroup">
+        <input type="text" formControlName="name">
+    </div>
+
+</form>

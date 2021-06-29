@@ -1,8 +1,9 @@
 <!-- <app-card [title]="Hello World"></app-card> -->
 <app-card [title]="Form"></app-card>
 
+<h1>New Form</h1>
 
-<form [formGroup]="newForm">
+<form [formGroup]="newForm" >
 
     <div class="inputgroup" formGroupName="inputs">
         <div class="inputgroup">
@@ -26,13 +27,15 @@
     </div>
 </form>
 
-<form [formGroup]="Form" (ngSubmit)="submit()">
+
+<h1>Form</h1>
+<form [formGroup]="Form" >
 
     <div class="inputgroup">
         <label for="">
             Username:
         </label>
-        <input type="text" formControlName="username">
+        <input type="text" formControlName="username" >
 
     </div>
 
@@ -43,7 +46,23 @@
         <input type="text" formControlName="age">
 
     </div>
+    <div class="inputgroup">
+        <label for="">
+            phone:
+        </label>
+        <input type="text" formControlName="phone">
 
+    </div>
+    <div class="inputgroup">
+        <label for="">
+            email:
+        </label>
+        <input type="text" formControlName="email">
+
+    </div>
+    <div class="inputgroup">
+        <button class="button" (click)="toggleDisable()">toggle disable input field</button>
+    </div>
     <div class="inputgroup">
         <select name="" id="" formControlName="task">
             <option value="">Select a task</option>
@@ -121,7 +140,7 @@
     </div>
 
     <div class="inputgroup">
-        <button class="button" type="submit">submit</button>
+        <button class="button" type="submit" (click)="submit()">submit</button>
     </div>
 </form>
 
