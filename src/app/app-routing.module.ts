@@ -11,10 +11,12 @@ import {ToastComponent} from './toast/toast.component'
 import { SelectComponent } from './select/select.component';
 import {Table1Component} from './table1/table1.component'
 import {DropdownComponent} from './dropdown/dropdown.component'
+import {ExcelComponent} from './excel/excel.component'
 //configure all possible routes
 
 const routes: Routes = [
   {path:'',component:FormsComponent},
+  {path:'excel',component:ExcelComponent},
   // {path:'',component:ToastComponent},
   {path:'dropdown',component:DropdownComponent},
   {path:'table',component:TableComponent},

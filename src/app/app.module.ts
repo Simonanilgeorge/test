@@ -16,6 +16,7 @@ import { Table1Component } from './table1/table1.component';
 import { Ng2SmartTableModule, LocalDataSource } from 'ng2-smart-table';
 import { DropdownComponent } from './dropdown/dropdown.component';
 import { MultifilterPipe } from './multifilter.pipe';
+import { ExcelComponent } from './excel/excel.component';
 @NgModule({
   declarations: [
     AppComponent,
@@ -43,7 +44,10 @@ Table1Component,
 DropdownComponent,
 
   
-MultifilterPipe
+MultifilterPipe,
+
+  
+ExcelComponent
   ],
   imports: [
     BrowserModule,

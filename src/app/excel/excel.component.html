@@ -1,0 +1,21 @@
+
+
+
+  <button style="cursor: pointer" (click)="exportexcel()">export to excel</button>
+
+
+  <table class="excel-table"> 
+    <tr>       
+       <th>ContainerNo</th> 
+       <th>SelCondition</th>  
+       <th> ContainerCondition</th> 
+  
+    </tr>    
+    <tr *ngFor="let sup of Company">
+  
+       <td>{{ sup.id }}</td>  
+       <td>{{ sup.Name }}</td> 
+       <td>{{ sup.Condition }}</td> 
+
+    </tr> 
+</table>
